@@ -8,8 +8,6 @@ import java.util.List; // fonctionnalités de List
 
 import com.imie.algotojava.tp09Modifie.Utilitaires;
 
-
-
 /**
  * @author 
  * @date 26 juin 2018

@@ -1,5 +1,15 @@
+/**
+ * 
+ */
 package com.imie.algotojava.tp09Modifie.model;
 
+/**
+ * @author 
+ * @date 26 juin 2018
+ * 
+ * La classe ArmureMixte hérite de Armure
+ * 
+ */
 public class ArmureMixte extends Armure {
 	// Les attributs	
 	private int statPhysique;
@@ -28,18 +38,34 @@ public class ArmureMixte extends Armure {
 		
 	
 	// Les accesseurs	
+	/**  Permet de modifier les dégâts physiques qui sont absorbés par l'armure
+	 * 
+	 * @param statPhysique, entier, résistance aux dégats physiques
+	 */
 	public void setStatPhysique(int statPhysique) {
 		this.statPhysique = statPhysique;
 	}
 	
+	/** Permet d'obtenir les dégâts physiques qui sont absorbés par l'armure sous forme d'entier
+	 * 
+	 * @return int, résistance aux dégats physiques
+	 */
 	public int getStatPhysique() {
 		return this.statPhysique;
 	}
 	
+	/**  Permet de modifier les dégâts magiques qui sont absorbés par l'armure
+	 * 
+	 * @param statMagique, entier, résistance aux dégats magiques
+	 */
 	public void setStatMagique(int statMagique) {
 		this.statMagique = statMagique;
 	}
 	
+	/** Permet d'obtenir les dégâts magiques qui sont absorbés par l'armure sous forme d'entier
+	 * 
+	 * @return int, résistance aux dégats magiques
+	 */
 	public int getStatMagique() {
 		return this.statMagique;
 	}

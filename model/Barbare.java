@@ -1,14 +1,22 @@
+/**
+ * 
+ */
 package com.imie.algotojava.tp09Modifie.model;
 
-
-
+/**
+ * @author 
+ * @date 26 juin 2018
+ * 
+ * La classe Barbare par défaut
+ * 
+ */
 public abstract class Barbare implements IBarbare{
-	
+	// Les attributs 
 	private ArmePhysique armePhysique;
 	private ArmurePhysique armurePhysique;
 	
-	public ArmePhysique getArme() {
-		
+	// Les accesseurs
+	public ArmePhysique getArme() {		
 		return armePhysique;
 		
 	}
