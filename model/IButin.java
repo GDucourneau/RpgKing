@@ -10,5 +10,5 @@ package com.imie.algotojava.tp09Modifie.model;
  * une arme ou armure
  */
 public interface IButin {
-
+	
 }

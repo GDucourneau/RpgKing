@@ -3,6 +3,9 @@
  */
 package com.imie.algotojava.tp09Modifie.model;
 
+import java.util.List; // fonctionnalités de List
+import java.util.ArrayList; // fonctionnalités de ArrayList
+
 /**
  * @author 
  * @date 26 juin 2018
@@ -28,13 +31,14 @@ public class Hero extends Personnage {
 	 * @param uneValeurDAttaque, entier, les dégats de base du héro
 	 */
 	public Hero(String unPrenom, String unNom, int sonNiveau, int nbPdvMax, int nbPaMax, int uneValeurDAttaque) {
-		super(); // Appel du constructeur de la classe mère	
+		super(unPrenom, unNom, sonNiveau, nbPdvMax, nbPaMax, uneValeurDAttaque); // Appel du constructeur de la classe mère	
 	}
 	
 	/** Ce personnage va récupérer une nouvelle arme ou armure.
 	 * 
+	 * @param laVictime, un objet Mob, le montre qui meurt et laisse son équipement
 	 */
-	public void recupererButin() {
+	public void recupererButin(Mob laVictime) {
 		
 	}
 	
