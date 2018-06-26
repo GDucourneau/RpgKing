@@ -99,15 +99,15 @@ public abstract class Personnage implements IPersonnage {
 	
 	/** Accesseur d'armure, qui retourne l'armure du personnage
 	 * 
-	 * @return objet (voir Armure.java), qui est l'armure du personnage
+	 * @return l'armure du personnage, qu'elle soit magique, mixte ou physique
 	 */
 	public Armure getArmure() {
-		return 
+		return this.classeRPG.getArmure();
 	}
 	
-	/** Accesseur d'arme, qui retourne l'armure du personnage
+	/** Accesseur d'arme, qui retourne l'arme du personnage
 	 * 
-	 * @return objet (voir Arme.java), qui est l'armure du personnage
+	 * @return l'arme du personnage, qu'elle soit magique, mixte ou physique
 	 */
 	public Arme getArme() {
 		return this.classeRPG.getArme();
