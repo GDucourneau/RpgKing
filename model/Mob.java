@@ -70,11 +70,11 @@ public class Mob extends Personnage {
 			default:
 				// le jackpot
 				this.inventaire.add(new ArmureMagique("La coupelle magique", this.niveau, Utilitaires.randomEntier(2*this.niveau)));
-				this.inventaire.add(new ArmeMagique("La flpute magique", this.niveau, Utilitaires.randomEntier(3*this.niveau)));					
+				this.inventaire.add(new ArmeMagique("La flpute magique", this.niveau, Utilitaires.randomEntier(2*this.niveau), Utilitaires.randomEntier(3*this.niveau)));					
 				this.inventaire.add(new ArmurePhysique("La combinaison de plAque", this.niveau, Utilitaires.randomEntier(3*this.niveau)));
-				this.inventaire.add(new ArmePhysique("L'épée en bois", this.niveau, Utilitaires.randomEntier(2*this.niveau)));					
+				this.inventaire.add(new ArmePhysique("L'épée en bois", this.niveau, Utilitaires.randomEntier(2*this.niveau), Utilitaires.randomEntier(2*this.niveau)));					
 				this.inventaire.add(new ArmureMixte("Le maillot de maille", this.niveau, Utilitaires.randomEntier(2*this.niveau), Utilitaires.randomEntier(2*this.niveau)));
-				this.inventaire.add(new ArmeMixte("Le mateau magique de l'ours en or", this.niveau, Utilitaires.randomEntier(3*this.niveau), Utilitaires.randomEntier(2*this.niveau)));					
+				this.inventaire.add(new ArmeMixte("Le mateau magique de l'ours en or", this.niveau, Utilitaires.randomEntier(2*this.niveau), Utilitaires.randomEntier(3*this.niveau), Utilitaires.randomEntier(2*this.niveau)));					
 				break;
 		} 	
 		return this.inventaire;

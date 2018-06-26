@@ -12,9 +12,7 @@ public class ArmeMagique extends Arme {
 	}
 	
 	public ArmeMagique (String nom, int niveau,int pA,int statMagique) {
-		this.nom = nom;
-		this.pA = pA;
-		this.niveau = niveau;
+		super( nom, niveau, pA);
 		this.statMagique = statMagique;
 	}
 	

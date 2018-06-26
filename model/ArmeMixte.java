@@ -11,9 +11,7 @@ public class ArmeMixte extends Arme {
 	}
 	
 	public ArmeMixte (String nom, int niveau,int pA,int statMagique, int statPhysique) {
-		this.nom = nom;
-		this.pA = pA;
-		this.niveau = niveau;
+		super( nom, niveau, pA);
 		this.statMagique = statMagique;
 		this.statPhysique = statPhysique;
 	}
