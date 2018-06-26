@@ -43,12 +43,22 @@ public class Mob extends Personnage {
 	
 	/** Ce monstre(méchant) va faire tomber de(une) nouvelle(s) arme(s) et/ou armure(s).
 	 * Ces armes/armures sont créées aléatoirement.
+	 * Plus le Mob est puissant, plus il lache un objet interressant.
 	 * 
 	 */
 	public List<IButin> lacherButin() {
-		// Plus le Mob est puissant, plus il lache un objet interressant
-		this.inventaire.add();
-		
+		// le type d'arme/d'armure est aléatoire
+		int choixButin = Utilitaires.randomEntier(6);
+		switch (choixButin) {
+			case 1:
+				// tout magique
+				this.inventaire.add(new ArmureMagique("L'assiette magique", this.niveau, Utilitaires.randomEntier(2*this.niveau)));
+				this.inventaire.add(new ArmeMagique("La jonquille magique", this.niveau, Utilitaires.randomEntier(3*this.niveau)));					
+				break;
+	
+			default:
+				break;
+		} 	
 		return this.inventaire;
 	}
 	
