@@ -8,9 +8,8 @@ public class ArmePhysique extends Arme {
 		
 	}
 	
-	public ArmePhysique (String nom, int niveau, int valeurAttaque,int pA,int statPhysique) {
+	public ArmePhysique (String nom, int niveau,int pA,int statPhysique) {
 		this.nom = nom;
-		this.valeurAttaque = valeurAttaque;
 		this.pA = pA;
 		this.niveau = niveau;
 		this.statPhysique = statPhysique;

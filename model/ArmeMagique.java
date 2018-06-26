@@ -11,9 +11,8 @@ public class ArmeMagique extends Arme {
 		
 	}
 	
-	public ArmeMagique (String nom, int niveau, int valeurAttaque,int pA,int statMagique) {
+	public ArmeMagique (String nom, int niveau,int pA,int statMagique) {
 		this.nom = nom;
-		this.valeurAttaque = valeurAttaque;
 		this.pA = pA;
 		this.niveau = niveau;
 		this.statMagique = statMagique;
