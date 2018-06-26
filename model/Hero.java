@@ -34,12 +34,12 @@ public class Hero extends Personnage {
 		super(unPrenom, unNom, sonNiveau, nbPdvMax, nbPaMax, uneValeurDAttaque); // Appel du constructeur de la classe mère	
 	}
 	
-	/** Ce personnage va récupérer une nouvelle arme ou armure.
+	/** Ce personnage va récupérer des armes ou armures.
 	 * 
-	 * @param laVictime, un objet Mob, le montre qui meurt et laisse son équipement
+	 * @param laVictime, un objet Mob, le montre qui meurt et laisse de l'équipement
 	 */
 	public void recupererButin(Mob laVictime) {
-		
+		this.inventaire = laVictime.lacherButin();
 	}
 	
 }
