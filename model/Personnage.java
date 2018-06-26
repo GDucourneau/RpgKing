@@ -3,10 +3,8 @@
  */
 package com.imie.algotojava.tp09Modifie.model;
 
-import com.imie.algotojava.tp09.model.Arme;
-import com.imie.algotojava.tp09.model.Armure;
-import java.util.List; // fonctionnalités de List
-import java.util.ArrayList; // fonctionnalités de ArrayList
+import com.imie.algotojava.tp09Modifie.model.Arme;
+import com.imie.algotojava.tp09Modifie.model.Armure;
 
 /**
  * @author 
@@ -14,7 +12,7 @@ import java.util.ArrayList; // fonctionnalités de ArrayList
  *
  * On ne peut pas creer de Personnage, il doit être soit Mob, soit Hero.
  */
-public abstract class Personnage {
+public abstract class Personnage implements IPersonnage {
 	// Les attributs	
 	protected String prenom;
 	protected String nom;
@@ -24,9 +22,6 @@ public abstract class Personnage {
 	protected int paMax;
 	protected int pa; // Points d'action actuels
 	protected int valeurDAttaque;
-	protected List<IButin> inventaire;
-	protected Armure armure;
-	protected Arme arme;
 	
 	// Les constructeurs
 	/** Constructeur vide de la classe Personnage
@@ -54,7 +49,7 @@ public abstract class Personnage {
 		this.paMax = nbPaMax;
 		this.pa = nbPaMax;
 		this.valeurDAttaque = uneValeurDAttaque;	
-		this.inventaire = new ArrayList<IButin>(); // création de l'inventaire du personnage
+		
 	}
 	
 	// Les accesseurs
@@ -99,7 +94,7 @@ public abstract class Personnage {
 	 * @return objet (voir Armure.java), qui est l'armure du personnage
 	 */
 	public Armure getArmure() {
-		return this.armure;
+		return this.;
 	}
 	
 	/** Accesseur d'arme, qui retourne l'armure du personnage
@@ -107,7 +102,7 @@ public abstract class Personnage {
 	 * @return objet (voir Arme.java), qui est l'armure du personnage
 	 */
 	public Arme getArme() {
-		return this.arme;
+		return this.Arme;
 	}
 	
 	

@@ -1,6 +1,7 @@
 package com.imie.algotojava.tp09Modifie.model;
 
 public class Armure {
+	
 	protected String nom;
 	protected int valeurDefense;
 	protected int niveau;
