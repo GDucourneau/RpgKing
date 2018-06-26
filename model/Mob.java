@@ -4,7 +4,7 @@
 package com.imie.algotojava.tp09Modifie.model;
 
 import java.util.List; // fonctionnalités de List
-import java.util.ArrayList; // fonctionnalités de ArrayList
+//import java.util.ArrayList; // fonctionnalités de ArrayList
 
 import com.imie.algotojava.tp09Modifie.Utilitaires;
 
