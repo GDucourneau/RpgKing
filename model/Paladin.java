@@ -1,6 +1,6 @@
 package com.imie.algotojava.tp09Modifie.model;
 
-public class Paladin {
+public abstract class Paladin implements IPaladin {
 
 	private ArmeMagique armeMagique;
 	private ArmeMixte armeMixte;

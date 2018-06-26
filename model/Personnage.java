@@ -26,6 +26,7 @@ public abstract class Personnage implements IPersonnage {
 	protected int pa; // Points d'action actuels
 	protected int valeurDAttaque;
 	protected List<IButin> inventaire; 
+	protected IPersonnage classeRPG;
 	
 	// Les constructeurs
 	/** Constructeur vide de la classe Personnage
@@ -43,8 +44,9 @@ public abstract class Personnage implements IPersonnage {
 	 * @param nbPdvMax, entier, le nombre de points de vies du Personnage
 	 * @param nbPaMax, entier, le nombre de points d'actions du Personnage
 	 * @param uneValeurDAttaque, entier, les dégats de base du Personnage
+	 * @param uneClasseRPG , Classe du personnage
 	 */
-	public Personnage(String unPrenom, String unNom, int sonNiveau, int nbPdvMax, int nbPaMax, int uneValeurDAttaque) {
+	public Personnage(String unPrenom, String unNom, int sonNiveau, int nbPdvMax, int nbPaMax, int uneValeurDAttaque, IPersonnage uneClasseRPG) {
 		this.prenom = unPrenom;
 		this.nom = unNom;
 		this.niveau = sonNiveau;
@@ -54,6 +56,8 @@ public abstract class Personnage implements IPersonnage {
 		this.pa = nbPaMax;
 		this.valeurDAttaque = uneValeurDAttaque;	
 		this.inventaire = new ArrayList<IButin>(); // création de l'inventaire du personnage
+		this.classeRPG = uneClasseRPG;
+			
 	}
 	
 	// Les accesseurs
@@ -98,7 +102,7 @@ public abstract class Personnage implements IPersonnage {
 	 * @return objet (voir Armure.java), qui est l'armure du personnage
 	 */
 	public Armure getArmure() {
-		return this.;
+		return 
 	}
 	
 	/** Accesseur d'arme, qui retourne l'armure du personnage
@@ -106,7 +110,7 @@ public abstract class Personnage implements IPersonnage {
 	 * @return objet (voir Arme.java), qui est l'armure du personnage
 	 */
 	public Arme getArme() {
-		return this.Arme;
+		return this.classeRPG.getArme();
 	}
 	
 	

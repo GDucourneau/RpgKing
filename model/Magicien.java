@@ -1,17 +1,17 @@
 package com.imie.algotojava.tp09Modifie.model;
 
-public class Magicien {
+public abstract class Magicien implements IMagicien{
 	
 	private ArmeMagique armeMagique;
 	private ArmureMagique armureMagique;
 	
 	
 	//get armeMagique
-	public ArmeMagique getArmeMagique() {
+	public ArmeMagique getArme() {
 		return armeMagique;
 	}
 
-	public void setArmeMagique(ArmeMagique armeMagique) {
+	public void setArme(ArmeMagique armeMagique) {
 		this.armeMagique = armeMagique;
 	}
 	

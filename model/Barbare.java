@@ -2,14 +2,15 @@ package com.imie.algotojava.tp09Modifie.model;
 
 
 
-public class Barbare {
+public abstract class Barbare implements IBarbare{
+	
 	private ArmePhysique armePhysique;
 	private ArmurePhysique armurePhysique;
 	
-	
-	
 	public ArmePhysique getArme() {
+		
 		return armePhysique;
+		
 	}
 
 	public void setArme(ArmePhysique armePhysique) {

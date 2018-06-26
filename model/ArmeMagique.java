@@ -1,6 +1,6 @@
 package com.imie.algotojava.tp09Modifie.model;
 
-public class ArmeMagique {
+public class ArmeMagique extends Arme {
 	
 	private int statMagique;
 	

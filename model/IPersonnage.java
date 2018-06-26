@@ -1,5 +1,6 @@
 package com.imie.algotojava.tp09Modifie.model;
 
-public interface IPersonnage  {
+public interface IPersonnage   {
 	// Classe RPG
+	public Arme getArme();
 }
