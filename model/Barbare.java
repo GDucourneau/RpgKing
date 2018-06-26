@@ -1,5 +1,26 @@
 package com.imie.algotojava.tp09Modifie.model;
 
+
+
 public class Barbare {
+	private ArmePhysique armePhysique;
+	private ArmurePhysique armurePhysique;
 	
+	
+	
+	public ArmePhysique getArme() {
+		return armePhysique;
+	}
+
+	public void setArme(ArmePhysique armePhysique) {
+		this.armePhysique = armePhysique;
+	}
+	
+	public ArmurePhysique getArmure() {
+		return armurePhysique;
+	}
+
+	public void setArmure(ArmurePhysique armurePhysique) {
+		this.armurePhysique = armurePhysique;
+	}
 }

@@ -1,5 +1,5 @@
 package com.imie.algotojava.tp09Modifie.model;
 
-public interface IPersonnage {
-
+public interface IPersonnage extends IPaladin,IBarbare,IMagicien {
+	
 }
