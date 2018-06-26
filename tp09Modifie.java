@@ -3,6 +3,8 @@
  */
 package com.imie.algotojava.tp09Modifie;
 
+import com.imie.algotojava.tp09Modifie.manager.RpgKing;
+
 /**
  * @author 
  * @date 26 juin 2018
@@ -11,7 +13,8 @@ package com.imie.algotojava.tp09Modifie;
 public class tp09Modifie {
 
 	public static void main(String[] args) {
-
+		// Lancement d'une partie
+		RpgKing.commencer();
 	}
 
 }
