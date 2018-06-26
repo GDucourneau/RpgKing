@@ -4,10 +4,10 @@
 package com.imie.algotojava.tp09Modifie.model;
 
 import java.util.List; // fonctionnalités de List
+import java.util.ArrayList; // fonctionnalités de ArrayList
 
 import com.imie.algotojava.tp09Modifie.Utilitaires;
 
-import java.util.ArrayList; // fonctionnalités de ArrayList
 
 
 /**
@@ -42,14 +42,12 @@ public class Mob extends Personnage {
 	// Les méthodes
 	
 	/** Ce monstre(méchant) va faire tomber de(une) nouvelle(s) arme(s) et/ou armure(s).
-	 * Ces armes/armures sont crées aléatoirement.
+	 * Ces armes/armures sont créées aléatoirement.
 	 * 
 	 */
 	public List<IButin> lacherButin() {
-		// Le Mob lache un nombre aléatoire de butin, entre 1 et 6
-		for (int i=0; i < Utilitaires.randomEntier(6); i++) {
-			this.
-		}
+		// Plus le Mob est puissant, plus il lache un objet interressant
+		this.inventaire.add();
 		
 		return this.inventaire;
 	}

@@ -1,6 +1,6 @@
 package com.imie.algotojava.tp09Modifie.model;
 
-public class Arme {
+public class Arme implements IButin{
 	
 	protected String nom;
 	protected int valeurAttaque;

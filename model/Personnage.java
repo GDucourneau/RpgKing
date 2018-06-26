@@ -6,6 +6,9 @@ package com.imie.algotojava.tp09Modifie.model;
 import com.imie.algotojava.tp09Modifie.model.Arme;
 import com.imie.algotojava.tp09Modifie.model.Armure;
 
+import java.util.List; // fonctionnalités de List
+import java.util.ArrayList; // fonctionnalités de ArrayList
+
 /**
  * @author 
  * @date 26 juin 2018
@@ -22,6 +25,7 @@ public abstract class Personnage implements IPersonnage {
 	protected int paMax;
 	protected int pa; // Points d'action actuels
 	protected int valeurDAttaque;
+	protected List<IButin> inventaire; 
 	
 	// Les constructeurs
 	/** Constructeur vide de la classe Personnage
@@ -49,7 +53,7 @@ public abstract class Personnage implements IPersonnage {
 		this.paMax = nbPaMax;
 		this.pa = nbPaMax;
 		this.valeurDAttaque = uneValeurDAttaque;	
-		
+		this.inventaire = new ArrayList<IButin>(); // création de l'inventaire du personnage
 	}
 	
 	// Les accesseurs
