@@ -34,9 +34,10 @@ public class Mob extends Personnage {
 	 * @param nbPdvMax, entier le nombre de points de vies du monstre(méchant)
 	 * @param nbPaMax, entier, le nombre de points d'actions du monstre(méchant)
 	 * @param uneValeurDAttaque, entier, les dégats de base du monstre(méchant)
+	 * @param uneClasseRPG , Classe du monstre(méchant), au sens RPG
 	 */
-	public Mob(String unPrenom, String unNom, int sonNiveau, int nbPdvMax, int nbPaMax, int uneValeurDAttaque) {
-		super(unPrenom, unNom, sonNiveau, nbPdvMax, nbPaMax, uneValeurDAttaque); // Appel du constructeur de la classe mère			
+	public Mob(String unPrenom, String unNom, int sonNiveau, int nbPdvMax, int nbPaMax, int uneValeurDAttaque, IPersonnage uneClasseRPG) {
+		super(unPrenom, unNom, sonNiveau, nbPdvMax, nbPaMax, uneValeurDAttaque, uneClasseRPG); // Appel du constructeur de la classe mère			
 	}
 	
 	// Les méthodes

@@ -44,7 +44,7 @@ public abstract class Personnage implements IPersonnage {
 	 * @param nbPdvMax, entier, le nombre de points de vies du Personnage
 	 * @param nbPaMax, entier, le nombre de points d'actions du Personnage
 	 * @param uneValeurDAttaque, entier, les dégats de base du Personnage
-	 * @param uneClasseRPG , Classe du personnage
+	 * @param uneClasseRPG , Classe du personnage, au sens RPG
 	 */
 	public Personnage(String unPrenom, String unNom, int sonNiveau, int nbPdvMax, int nbPaMax, int uneValeurDAttaque, IPersonnage uneClasseRPG) {
 		this.prenom = unPrenom;
