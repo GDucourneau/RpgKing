@@ -8,6 +8,17 @@ public class Arme implements IButin{
 	protected int niveau;
 	
 	
+	public Arme () {
+		
+	}
+	
+	public Arme (String nom, int niveau, int valeurAttaque,int pA) {
+		this.nom = nom;
+		this.valeurAttaque = valeurAttaque;
+		this.pA = pA;
+		this.niveau = niveau;
+	}
+	
 	public void setNom(String nom) {
 		this.nom = nom;
 	}

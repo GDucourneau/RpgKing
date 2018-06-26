@@ -4,6 +4,18 @@ public class ArmePhysique extends Arme {
 	
 	private int statPhysique;
 	
+	public ArmePhysique () {
+		
+	}
+	
+	public ArmePhysique (String nom, int niveau, int valeurAttaque,int pA,int statPhysique) {
+		this.nom = nom;
+		this.valeurAttaque = valeurAttaque;
+		this.pA = pA;
+		this.niveau = niveau;
+		this.statPhysique = statPhysique;
+	}
+	
 	public void setStatPhysique(int statPhysique) {
 		this.statPhysique = statPhysique;
 	}
