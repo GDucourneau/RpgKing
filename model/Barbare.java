@@ -47,9 +47,15 @@ public class Barbare implements IBarbare{
 		this.armurePhysique = armurePhysique;
 	}
 
-	@Override
-	public int charge() {
-		// TODO Auto-generated method stub
-		return 0;
+	// Les méthodes
+	/** Implémentation de la charge
+	 * 
+	 * @return un tableau de deux entiers, le cout de la compétence et les dégats de la compétence
+	 */
+	public int[] charge() {
+		int cout = 5;
+		int degats = 25;
+		int[] charge = {cout, degats};
+		return charge;
 	}
 }
