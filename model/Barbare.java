@@ -14,6 +14,7 @@ package com.imie.algotojava.tp09Modifie.model;
 public class Barbare implements IBarbare{
 	// Les attributs 
 	private ArmePhysique armePhysique;
+	private ArmePhysique armePhysiqueSecondaire;
 	private ArmurePhysique armurePhysique;
 	
 	//constructeur
@@ -25,6 +26,7 @@ public class Barbare implements IBarbare{
 	public Barbare(ArmePhysique armePhysique,ArmurePhysique armurePhysique)
 	{
 		this.armePhysique = armePhysique;
+		this.armePhysiqueSecondaire = armePhysique; // par défaut, le barbare à deux fois la même arme
 		this.armurePhysique = armurePhysique;
 	}
 	
@@ -45,6 +47,14 @@ public class Barbare implements IBarbare{
 
 	public void setArmure(ArmurePhysique armurePhysique) {
 		this.armurePhysique = armurePhysique;
+	}
+	
+	public ArmePhysique getArmeSecondaire() {
+		return armePhysiqueSecondaire;
+	}
+
+	public void setArmeSecondaire (ArmePhysique uneArmePhysiqueSecondaire) {
+		this.armePhysiqueSecondaire = uneArmePhysiqueSecondaire;
 	}
 
 	// Les méthodes
