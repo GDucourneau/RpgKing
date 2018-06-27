@@ -18,11 +18,20 @@ public class Barbare implements IBarbare{
 	private ArmurePhysique armurePhysique;
 	
 	//constructeur
+	/** Constructeur de la classe Barbare
+	 * 
+	 */
 	public Barbare()
 	{
 		
 	}
 	
+	/** Constructeur de la classe Barbare
+	 * Il utilisera la même arme en main gauche et en main droite
+	 * 
+	 * @param armePhysique, l'arme que le barbare utilisira
+	 * @param armurePhysique, l'armure que le barbare utilisira
+	 */
 	public Barbare(ArmePhysique armePhysique,ArmurePhysique armurePhysique)
 	{
 		this.armePhysique = armePhysique;
