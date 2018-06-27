@@ -191,6 +191,8 @@ public abstract class Personnage implements IPersonnage {
 			reductionPhysique = ((ArmureMixte) this.classeRPG.getArmure()).getStatPhysique();
 			reductionMagique = ((ArmureMixte) this.classeRPG.getArmure()).getStatMagique();			
 		}
+		
+		// 
 	}
 
 }
