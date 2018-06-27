@@ -10,16 +10,14 @@ package com.imie.algotojava.tp09Modifie.model;
  * La classe Paladin par défaut
  * 
  */
-public abstract class Paladin implements IPaladin {
-	// Les attributs
-	
+public class Paladin implements IPaladin {
+	// Les attributs	
 	private ArmeMagique armeMagique;
 	private ArmeMixte armeMixte;
 	private ArmureMagique armureMagique;
 	private ArmureMixte armureMixte;
 	
-	// Les accesseurs
-	
+	// Les accesseurs	
 	//get armeMagique
 	public ArmeMagique getArmeMagique() {
 		return armeMagique;
@@ -56,5 +54,10 @@ public abstract class Paladin implements IPaladin {
 		this.armureMixte = armureMixte;
 	}
 	
+	// Les faux accesseurs
+	public Arme getArme() {
+		
+		return this.getArme();
+	}
 	
 }
