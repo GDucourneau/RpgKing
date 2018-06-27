@@ -174,8 +174,8 @@ public abstract class Personnage implements IPersonnage {
 		}
 		
 		// On rempli le tableau de resultat
-		degatsMixtes[0] = degatsPhysiques;
-		degatsMixtes[1] = degatsMagiques;
+		degatsMixtes[0] = this.valeurDAttaque * degatsPhysiques;
+		degatsMixtes[1] = this.valeurDAttaque * degatsMagiques;
 		
 		return degatsMixtes;
 	}
@@ -205,8 +205,7 @@ public abstract class Personnage implements IPersonnage {
 		reductionMixte[0] = reductionPhysique;
 		reductionMixte[1] = reductionMagique;
 		
-		return reductionMixte;
-		
+		return reductionMixte;		
 	}
 
 }
