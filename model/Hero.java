@@ -3,7 +3,7 @@
  */
 package com.imie.algotojava.tp09Modifie.model;
 
-//import java.util.List; // fonctionnalités de List
+import java.util.List; // fonctionnalités de List
 //import java.util.ArrayList; // fonctionnalités de ArrayList
 
 /**
@@ -40,8 +40,9 @@ public class Hero extends Personnage {
 	 * @param laVictime, un objet Mob, le montre qui meurt et laisse de l'équipement
 	 */
 	public void recupererButin(Mob laVictime) {
-		for (int i=0; i < laVictime.lacherButin().size(); i++) {
-			this.inventaire.add(laVictime.lacherButin().get(i));
+		List<IButin> butin = laVictime.lacherButin();
+		for (int i=0; i < butin.size(); i++) {
+			this.inventaire.add(butin.get(i));
 		}
 	}
 	
