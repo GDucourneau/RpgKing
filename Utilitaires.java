@@ -7,7 +7,7 @@ package com.imie.algotojava.tp09Modifie;
  * @author 
  * @date 26 juin 2018
  * 
- * Classe rassemblant les fonctions utiles pour plusieurs programmes
+ * Classe rassemblant les fonctions utiles pour plusieurs classes
  *  
  */
 public class Utilitaires {

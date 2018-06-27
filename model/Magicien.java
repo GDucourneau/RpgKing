@@ -1,11 +1,21 @@
+/**
+ * 
+ */
 package com.imie.algotojava.tp09Modifie.model;
 
+/**
+ * @author 
+ * @date 26 juin 2018
+ * 
+ * La classe Magicien par défaut
+ * 
+ */
 public abstract class Magicien implements IMagicien{
-	
+	// Les attributs
 	private ArmeMagique armeMagique;
 	private ArmureMagique armureMagique;
 	
-	
+	// Les accesseurs
 	//get armeMagique
 	public ArmeMagique getArme() {
 		return armeMagique;

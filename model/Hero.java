@@ -3,8 +3,8 @@
  */
 package com.imie.algotojava.tp09Modifie.model;
 
-import java.util.List; // fonctionnalités de List
-import java.util.ArrayList; // fonctionnalités de ArrayList
+//import java.util.List; // fonctionnalités de List
+//import java.util.ArrayList; // fonctionnalités de ArrayList
 
 /**
  * @author 
@@ -29,9 +29,10 @@ public class Hero extends Personnage {
 	 * @param nbPdvMax, entier, le nombre de points de vies du héro
 	 * @param nbPaMax, entier, le nombre de points d'actions du héro
 	 * @param uneValeurDAttaque, entier, les dégats de base du héro
+	 * @param uneClasseRPG , Classe du héro, au sens RPG
 	 */
 	public Hero(String unPrenom, String unNom, int sonNiveau, int nbPdvMax, int nbPaMax, int uneValeurDAttaque, IPersonnage uneClasseRPG) {
-		super(unPrenom, unNom, sonNiveau, nbPdvMax, nbPaMax, uneValeurDAttaque,uneClasseRPG); // Appel du constructeur de la classe mère	
+		super(unPrenom, unNom, sonNiveau, nbPdvMax, nbPaMax, uneValeurDAttaque, uneClasseRPG); // Appel du constructeur de la classe mère	
 	}
 	
 	/** Ce personnage va récupérer des armes ou armures.
@@ -39,7 +40,9 @@ public class Hero extends Personnage {
 	 * @param laVictime, un objet Mob, le montre qui meurt et laisse de l'équipement
 	 */
 	public void recupererButin(Mob laVictime) {
-		this.inventaire = laVictime.lacherButin();
+		for (int i=0; i < laVictime.lacherButin().size(); i++) {
+			this.inventaire.add(laVictime.lacherButin().get(i));
+		}
 	}
 	
 }

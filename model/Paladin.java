@@ -1,12 +1,26 @@
+/**
+ * 
+ */
 package com.imie.algotojava.tp09Modifie.model;
 
+
+/**
+ * @author 
+ * @date 26 juin 2018
+ * 
+ * La classe Paladin par défaut
+ * 
+ */
 public class Paladin implements IPaladin {
+	// Les attributs
+	
 
 	private ArmeMagique armeMagique;
 	private ArmeMixte armeMixte;
 	private ArmureMagique armureMagique;
 	private ArmureMixte armureMixte;
 	
+	// Les accesseurs
 	
 	public Paladin ()
 	{

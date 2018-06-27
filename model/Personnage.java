@@ -26,7 +26,7 @@ public abstract class Personnage implements IPersonnage {
 	protected int pa; // Points d'action actuels
 	protected int valeurDAttaque;
 	protected List<IButin> inventaire; 
-	protected IPersonnage classeRPG;
+	protected IPersonnage classeRPG; // contient l'arme, l'armure et les compétences d'un personnage
 	
 	// Les constructeurs
 	/** Constructeur vide de la classe Personnage
@@ -44,7 +44,7 @@ public abstract class Personnage implements IPersonnage {
 	 * @param nbPdvMax, entier, le nombre de points de vies du Personnage
 	 * @param nbPaMax, entier, le nombre de points d'actions du Personnage
 	 * @param uneValeurDAttaque, entier, les dégats de base du Personnage
-	 * @param uneClasseRPG , Classe du personnage
+	 * @param uneClasseRPG , Classe du personnage, au sens RPG
 	 */
 	public Personnage(String unPrenom, String unNom, int sonNiveau, int nbPdvMax, int nbPaMax, int uneValeurDAttaque, IPersonnage uneClasseRPG) {
 		this.prenom = unPrenom;
@@ -143,19 +143,69 @@ public abstract class Personnage implements IPersonnage {
 		return this.paMax;
 	}
 	
-	// Les méthodes
-	/** Ce personnage enleve des points de vie au personnage renseigné en paramètres.
+	// Les faux accesseurs	
+	/** Permet de savoir si un personnage est vivant ou mort
 	 * 
-	 * @param unPersonnage, objet Personnage, que l'on va attaquer
+	 * @return boolean, true si le personnnage est vivant, false sinon.
 	 */
-	public void attaquer(Personnage unPersonnage) {
-		
+	public boolean estVivant() {
+		return this.pdv > 0;
 	}
 	
-	/** Ce personnage se defend.
+	/** Permet d'obtenir les dégats que le personnage inflige, sous forme de tableau de deux entiers
 	 * 
+	 * @return tableau de deux entiers, dégats physiques puis dégats magiques
 	 */
-	public void seDefendre() {
+	public int[] getAttaque() {
+		int degatsPhysiques = 0;
+		int degatsMagiques = 0;
+		int[] degatsMixtes = new int [2];
+				
+		// Récupération des dégats physiques et magiques en fonction de la classe, sens RPG du personnage
+		if (this.classeRPG instanceof IBarbare) {
+			degatsPhysiques = ((ArmePhysique) this.classeRPG.getArme()).getStatPhysique();
+		}
+		else if(this.classeRPG instanceof IMagicien) {
+			degatsMagiques = ((ArmeMagique) this.classeRPG.getArme()).getStatMagique();
+		}
+		else if(this.classeRPG instanceof IPaladin) {
+			degatsPhysiques = ((ArmeMixte) this.classeRPG.getArme()).getStatPhysique();
+			degatsMagiques = ((ArmeMixte) this.classeRPG.getArme()).getStatMagique();			
+		}
+		
+		// On rempli le tableau de resultat
+		degatsMixtes[0] = degatsPhysiques;
+		degatsMixtes[1] = degatsMagiques;
+		
+		return degatsMixtes;
+	}
+	
+	/** Permet d'obtenir la réduction de dégats du personnnage, sous forme de tableau de deux entiers
+	 * 
+	 * @return tableau de deux entiers, réduction physique puis réduction magique
+	 */
+	public int[] getDefense() {
+		int reductionPhysique = 0;
+		int reductionMagique = 0;
+		int[] reductionMixte = new int[2];		
+		
+		// Récupération des réduction physiques et magiques, liés à la victime
+		if (this.classeRPG instanceof IBarbare) {
+			reductionPhysique = ((ArmurePhysique) this.classeRPG.getArmure()).getStatPhysique();
+		}
+		else if(this.classeRPG instanceof IMagicien) {
+			reductionMagique = ((ArmureMagique) this.classeRPG.getArmure()).getStatMagique();
+		}
+		else if(this.classeRPG instanceof IPaladin) {
+			reductionPhysique = ((ArmureMixte) this.classeRPG.getArmure()).getStatPhysique();
+			reductionMagique = ((ArmureMixte) this.classeRPG.getArmure()).getStatMagique();			
+		}
+		
+		// Rempli le tableau de résultats		
+		reductionMixte[0] = reductionPhysique;
+		reductionMixte[1] = reductionMagique;
+		
+		return reductionMixte;
 		
 	}
 
