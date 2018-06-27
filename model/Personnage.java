@@ -26,7 +26,7 @@ public abstract class Personnage implements IPersonnage {
 	protected int pa; // Points d'action actuels
 	protected int valeurDAttaque;
 	protected List<IButin> inventaire; 
-	protected IPersonnage classeRPG;
+	protected IPersonnage classeRPG; // contient l'arme, l'armure et les compétences d'un personnage
 	
 	// Les constructeurs
 	/** Constructeur vide de la classe Personnage
@@ -143,20 +143,54 @@ public abstract class Personnage implements IPersonnage {
 		return this.paMax;
 	}
 	
-	// Les méthodes
-	/** Ce personnage enleve des points de vie au personnage renseigné en paramètres.
+	// Les faux accesseurs	
+	/** Permet de savoir si un personnage est vivant ou mort
 	 * 
-	 * @param unPersonnage, objet Personnage, que l'on va attaquer
+	 * @return boolean, true si le personnnage est vivant, false sinon.
 	 */
-	public void attaquer(Personnage unPersonnage) {
-		
+	public boolean estVivant() {
+		return this.pdv > 0;
 	}
 	
-	/** Ce personnage se defend.
+	// Les méthodes
+	/** Ce personnage enleve des points de vie au personnage renseigné en paramètres.
+	 * Tout en prenant en compte les armes et armures
 	 * 
+	 * @param laVictime, objet Personnage, que l'on va attaquer
 	 */
-	public void seDefendre() {
+	public void attaquer(Personnage laVictime) {
+		int degatsPhysique;
+		int degatsMagique;
+		int reductionPhysique;
+		int reductionMagique;
+				
+		// Récupération des dégats physiques et magiques initiaux, liés à l'attaquant
+		if (this.classeRPG instanceof IBarbare) {
+			degatsPhysique = ((ArmePhysique) this.classeRPG.getArme()).getStatPhysique();
+			degatsMagique = 0;
+		}
+		else if(this.classeRPG instanceof IPaladin) {
+			degatsPhysique = 0;
+			degatsMagique = ((ArmeMagique) this.classeRPG.getArme()).getStatMagique();
+		}
+		else if(this.classeRPG instanceof IPaladin) {
+			degatsPhysique = ((ArmeMixte) this.classeRPG.getArme()).getStatPhysique();
+			degatsMagique = ((ArmeMixte) this.classeRPG.getArme()).getStatMagique();			
+		}
 		
+		// Récupération des réduction physiques et magiques, liés à la victime
+		if (this.classeRPG instanceof IBarbare) {
+			reductionPhysique = ((ArmurePhysique) this.classeRPG.getArmure()).getStatPhysique();
+			reductionMagique = 0;
+		}
+		else if(this.classeRPG instanceof IPaladin) {
+			reductionPhysique = 0;
+			reductionMagique = ((ArmureMagique) this.classeRPG.getArmure()).getStatMagique();
+		}
+		else if(this.classeRPG instanceof IPaladin) {
+			reductionPhysique = ((ArmureMixte) this.classeRPG.getArmure()).getStatPhysique();
+			reductionMagique = ((ArmureMixte) this.classeRPG.getArmure()).getStatMagique();			
+		}
 	}
 
 }
