@@ -11,7 +11,7 @@ package com.imie.algotojava.tp09Modifie.model;
  * La classe Barbare par défaut
  * 
  */
-public abstract class Barbare implements IBarbare{
+public class Barbare implements IBarbare{
 	// Les attributs 
 	private ArmePhysique armePhysique;
 	private ArmurePhysique armurePhysique;

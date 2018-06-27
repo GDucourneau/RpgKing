@@ -105,7 +105,7 @@ public class RpgKing {
 			switch(classe)
 			{
 				case "1":
-					Hero joueur = new Hero(tabPerso[0],tabPerso[1],Integer.parseInt(tabPerso[2]),Integer.parseInt(tabPerso[3]),Integer.parseInt(tabPerso[4]),Integer.parseInt(tabPerso[5]),unbarbare);
+					Hero joueur = new Hero(tabPerso[0],tabPerso[1],Integer.parseInt(tabPerso[2]),Integer.parseInt(tabPerso[3]),Integer.parseInt(tabPerso[4]),Integer.parseInt(tabPerso[5]),unBarbare);
 
 				case "2":
 					//Hero joueur = new Hero(tabPerso[0],tabPerso[1],Integer.parseInt(tabPerso[2]),Integer.parseInt(tabPerso[3]),Integer.parseInt(tabPerso[4]),Integer.parseInt(tabPerso[5]),)
