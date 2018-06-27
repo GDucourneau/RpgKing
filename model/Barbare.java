@@ -3,6 +3,7 @@
  */
 package com.imie.algotojava.tp09Modifie.model;
 
+
 /**
  * @author 
  * @date 26 juin 2018
@@ -14,6 +15,19 @@ public abstract class Barbare implements IBarbare{
 	// Les attributs 
 	private ArmePhysique armePhysique;
 	private ArmurePhysique armurePhysique;
+	
+	//constructeur
+	public Barbare()
+	{
+		
+	}
+	
+	public Barbare(ArmePhysique armePhysique,ArmurePhysique armurePhysique)
+	{
+		this.armePhysique = armePhysique;
+		this.armurePhysique = armurePhysique;
+	}
+	
 	
 	// Les accesseurs
 	public ArmePhysique getArme() {		
@@ -31,5 +45,11 @@ public abstract class Barbare implements IBarbare{
 
 	public void setArmure(ArmurePhysique armurePhysique) {
 		this.armurePhysique = armurePhysique;
+	}
+
+	@Override
+	public int charge() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

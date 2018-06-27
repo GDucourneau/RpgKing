@@ -3,6 +3,7 @@
  */
 package com.imie.algotojava.tp09Modifie.model;
 
+
 /**
  * @author 
  * @date 26 juin 2018
@@ -11,13 +12,29 @@ package com.imie.algotojava.tp09Modifie.model;
  * 
  */
 public class Paladin implements IPaladin {
-	// Les attributs	
+	
+	// Les attributs
+	
 	private ArmeMagique armeMagique;
 	private ArmeMixte armeMixte;
 	private ArmureMagique armureMagique;
 	private ArmureMixte armureMixte;
+
+	// Les accesseurs
 	
-	// Les accesseurs	
+	public Paladin ()
+	{
+		
+	}
+	
+	public Paladin(ArmeMagique armeMagique,ArmeMixte armeMixte,ArmureMagique armureMagique,ArmureMixte armureMixte)
+	{
+		this.armeMagique = armeMagique;
+		this.armeMixte = armeMixte;
+		this.armureMagique = armureMagique;
+		this.armureMixte = armureMixte;
+	}
+
 	//get armeMagique
 	public ArmeMagique getArmeMagique() {
 		return armeMagique;
@@ -53,11 +70,23 @@ public class Paladin implements IPaladin {
 	public void setArmureMixte(ArmureMixte armureMixte) {
 		this.armureMixte = armureMixte;
 	}
-	
-	// Les faux accesseurs
+
+	@Override
+	public int Soin() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public Arme getArme() {
-		
-		return this.getArme();
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Armure getArmure() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
