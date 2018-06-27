@@ -199,6 +199,23 @@ public abstract class Personnage implements IPersonnage {
 		return this.paMax;
 	}
 	
+
+	/** Accesseur de inventaire, retourne l'inventaire du personnage
+	 * 
+	 * @return une liste  d'objets IButin, l'inventaire du personnage
+	 */
+	public List<IButin> getInventaire() {
+		return this.inventaire;
+	}
+	
+	/** Accesseur de inventaire, modifie l'inventaire du personnage
+	 * 
+	 * @param une liste d'objets IButin, les objets que l'on donne au personnage
+	 */
+	public void setInventaire(List<IButin> butin) {
+		this.inventaire = butin;
+	}
+	
 	// Les faux accesseurs	
 	/** Permet de savoir si un personnage est vivant ou mort
 	 * 
