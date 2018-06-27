@@ -191,6 +191,15 @@ public class RpgKing {
 			{
 				System.out.println(mob.getPrenom()+" "+mob.getNom()+" is dead");
 				winner = joueurs.get(i).getNom()+" "+joueurs.get(i).getPrenom();
+				joueurs.get(i).recupererButin(mob); 
+				
+				//Apres une victoire on Loot!
+				
+				for(int f = 0 ;f < joueurs.get(i).getInventaire().size();f++)
+				{
+					System.out.println(joueurs.get(i).getInventaire().get(f).getNom());
+				}
+				
 				joueurs.remove(joueurs.get(i));
 				break;
 			}else {
@@ -212,6 +221,11 @@ public class RpgKing {
 	}
 	
 	public static void attaquer()
+	{
+		
+	}
+	
+	public static void donjon()
 	{
 		
 	}

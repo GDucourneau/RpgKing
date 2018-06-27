@@ -46,34 +46,35 @@ public class Mob extends Personnage {
 	 * 
 	 */
 	public List<IButin> lacherButin() {
+		int niveau = this.niveau;
 		// le type d'arme/d'armure est aléatoire
 		int choixButin = Utilitaires.randomEntier(6);
 		switch (choixButin) {
 			case 1:
 				// tout magique
-				this.inventaire.add(new ArmureMagique("L'assiette magique", this.niveau, 2*this.niveau));
-				this.inventaire.add(new ArmeMagique("La jonquille magique", this.niveau, 2*this.niveau, 3*this.niveau));					
+				this.inventaire.add(new ArmureMagique("L'assiette magique", niveau, 2*niveau));
+				this.inventaire.add(new ArmeMagique("La jonquille magique", niveau, 2*niveau, 3*niveau));					
 				break;
 
 			case 2:
 				// tout physique
-				this.inventaire.add(new ArmurePhysique("L'armure de plAque", this.niveau, 2*this.niveau));
-				this.inventaire.add(new ArmePhysique("L'épée de l'ours en bois", this.niveau, 2*this.niveau, 2*this.niveau));					
+				this.inventaire.add(new ArmurePhysique("L'armure de plAque", niveau, 2*niveau));
+				this.inventaire.add(new ArmePhysique("L'épée de l'ours en bois", niveau, 2*niveau, 2*niveau));					
 				break;
 				
 			case 3:
 				// tout mixte
-				this.inventaire.add(new ArmureMixte("L'assiette de maille", this.niveau, 2*this.niveau, 2*this.niveau));
-				this.inventaire.add(new ArmeMixte("Le marteau magique de l'ours en bois", this.niveau, 2*this.niveau, 2*this.niveau, 2*this.niveau));					
+				this.inventaire.add(new ArmureMixte("L'assiette de maille", niveau, 2*niveau, 2*niveau));
+				this.inventaire.add(new ArmeMixte("Le marteau magique de l'ours en bois", niveau, 2*niveau, 2*niveau, 2*niveau));					
 				break;
 			default:
 				// le jackpot
-				this.inventaire.add(new ArmureMagique("La coupelle magique", this.niveau, 2*this.niveau));
-				this.inventaire.add(new ArmeMagique("La flûte magique", this.niveau, 2*this.niveau, Utilitaires.randomEntier(3*this.niveau)));					
-				this.inventaire.add(new ArmurePhysique("La combinaison de plAque", this.niveau, choixButin*this.niveau));
-				this.inventaire.add(new ArmePhysique("L'épée en bois", this.niveau, 2*this.niveau, Utilitaires.randomEntier(2*this.niveau)));					
-				this.inventaire.add(new ArmureMixte("Le maillot de maille", this.niveau, 2*this.niveau, 2*this.niveau));
-				this.inventaire.add(new ArmeMixte("Le mateau magique de l'ours en or", this.niveau, 2*this.niveau, 3*this.niveau, 2*this.niveau));					
+				this.inventaire.add(new ArmureMagique("La coupelle magique", niveau, 2*niveau));
+				this.inventaire.add(new ArmeMagique("La flûte magique", niveau, 2*niveau, Utilitaires.randomEntier(3*niveau)));					
+				this.inventaire.add(new ArmurePhysique("La combinaison de plAque", niveau, choixButin*niveau));
+				this.inventaire.add(new ArmePhysique("L'épée en bois", niveau, 2*niveau, Utilitaires.randomEntier(2*niveau)));					
+				this.inventaire.add(new ArmureMixte("Le maillot de maille", niveau, 2*niveau, 2*niveau));
+				this.inventaire.add(new ArmeMixte("Le mateau magique de l'ours en or", niveau, 2*niveau, 3*niveau, 2*niveau));					
 				break;
 		} 	
 		return this.inventaire;
