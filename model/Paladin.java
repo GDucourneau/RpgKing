@@ -1,12 +1,25 @@
 package com.imie.algotojava.tp09Modifie.model;
 
-public abstract class Paladin implements IPaladin {
+public class Paladin implements IPaladin {
 
 	private ArmeMagique armeMagique;
 	private ArmeMixte armeMixte;
 	private ArmureMagique armureMagique;
 	private ArmureMixte armureMixte;
 	
+	
+	public Paladin ()
+	{
+		
+	}
+	
+	public Paladin(ArmeMagique armeMagique,ArmeMixte armeMixte,ArmureMagique armureMagique,ArmureMixte armureMixte)
+	{
+		this.armeMagique = armeMagique;
+		this.armeMixte = armeMixte;
+		this.armureMagique = armureMagique;
+		this.armureMixte = armureMixte;
+	}
 	
 	//get armeMagique
 	public ArmeMagique getArmeMagique() {
@@ -43,6 +56,23 @@ public abstract class Paladin implements IPaladin {
 	public void setArmureMixte(ArmureMixte armureMixte) {
 		this.armureMixte = armureMixte;
 	}
-	
+
+	@Override
+	public int Soin() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Arme getArme() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Armure getArmure() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

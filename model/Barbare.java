@@ -2,10 +2,21 @@ package com.imie.algotojava.tp09Modifie.model;
 
 
 
-public abstract class Barbare implements IBarbare{
+public class Barbare implements IBarbare{
 	
 	private ArmePhysique armePhysique;
 	private ArmurePhysique armurePhysique;
+	
+	public Barbare()
+	{
+		
+	}
+	
+	public Barbare(ArmePhysique armePhysique,ArmurePhysique armurePhysique)
+	{
+		this.armePhysique = armePhysique;
+		this.armurePhysique = armurePhysique;
+	}
 	
 	public ArmePhysique getArme() {
 		
@@ -23,5 +34,11 @@ public abstract class Barbare implements IBarbare{
 
 	public void setArmure(ArmurePhysique armurePhysique) {
 		this.armurePhysique = armurePhysique;
+	}
+
+	@Override
+	public int charge() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
