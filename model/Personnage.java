@@ -144,7 +144,6 @@ public abstract class Personnage implements IPersonnage {
 		return this.armure;
 	}
 	
-	
 	/** Accesseur d'armure, qui permet de changer l'armure du personnage, 
 	 * qui prend en compte la classe (au sens RPG) du personnage
 	 * 
