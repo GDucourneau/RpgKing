@@ -38,19 +38,46 @@ public class Magicien implements IMagicien{
 		return armeMagique;
 	}
 
-	public void setArme(ArmeMagique armeMagique) {
-		this.armeMagique = armeMagique;
+	public void setArme(Arme armeMagique) {
+		this.armeMagique = (ArmeMagique) armeMagique;
 	}
 	
 	public Armure getArmure() {
 		return armureMagique;
 	}
 
-	public void setArmureMagique(ArmureMagique armureMagique) {
-		this.armureMagique = armureMagique;
+	public void setArmure(Armure armureMagique) {
+		this.armureMagique = (ArmureMagique) armureMagique;
 	}
 	
 	// Les méthodes
+	/** Permet de savoir si le personnage peut équiper ou non une arme
+	 * 
+	 * @param uneArme, l'arme que l'on veut vérifier
+	 * @return un boolean, true si l'arme est équipable, false sinon
+	 */
+	public boolean checkArme(Arme uneArme) {
+		boolean armeEquipable = false;
+		if (uneArme instanceof ArmeMagique) {
+			armeEquipable = true;
+		}
+		return armeEquipable;
+	}
+	
+
+	/** Permet de savoir si le personnage peut équiper ou non une armure
+	 * 
+	 * @param uneArmure, l'arme que l'on veut vérifier
+	 * @return un boolean, true si l'armure est équipable, false sinon
+	 */
+	public boolean checkArmure(Armure uneArmure) {
+		boolean armureEquipable = false;
+		if (uneArmure instanceof ArmureMagique) {
+			armureEquipable = true;
+		}
+		return armureEquipable;
+	}
+	
 	/** Implémentation de la boule de feu
 	 * 
 	 * @return un tableau de deux entiers, le cout de la compétence et les dégats de la compétence

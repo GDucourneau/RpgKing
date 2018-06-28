@@ -27,8 +27,6 @@ public abstract class Personnage implements IPersonnage {
 	protected int valeurDAttaque;
 	protected List<IButin> inventaire; 
 	protected IPersonnage classeRPG; // contient l'arme, l'armure et les compétences d'un personnage
-	protected Arme arme;
-	protected Armure armure;
 	
 	// Les constructeurs
 	/** Constructeur vide de la classe Personnage
@@ -59,9 +57,6 @@ public abstract class Personnage implements IPersonnage {
 		this.valeurDAttaque = uneValeurDAttaque;	
 		this.inventaire = new ArrayList<IButin>(); // création de l'inventaire du personnage
 		this.classeRPG = uneClasseRPG;
-		// Arme et armure de la classeRPG par défaut
-		this.arme = this.classeRPG.getArme();
-		this.armure = this.classeRPG.getArmure();
 			
 	}
 	
@@ -107,33 +102,21 @@ public abstract class Personnage implements IPersonnage {
 	 * @return l'arme du personnage, qu'elle soit magique, mixte ou physique
 	 */
 	public Arme getArme() {
-		return this.arme;
+		return this.classeRPG.getArme();
 	}
 	
 	/** Accesseur d'arme, qui permet de changer l'arme du personnage, 
 	 * qui prend en compte la classe (au sens RPG) du personnage
 	 * 
 	 * @param uneArme, objet Arme, arme que l'on veut équiper 
-	 * @return boolean, true si l'arme a été changée, false sinon
 	 */
-	public boolean setArme(Arme uneArme) {
-		boolean armeChangee = false;
-		// cas du IBarbare et de son arme physique
-		if(this.classeRPG instanceof IBarbare && uneArme instanceof ArmePhysique) {
-			this.arme = uneArme;
-			armeChangee = true;
+	public void setArme(Arme uneArme) {
+		// On vérifie si le personnage peut équiper l'arme
+		if(this.classeRPG.checkArme(uneArme)) {
+			System.out.println(this.nom + " a laché " + this.classeRPG.getArme().getNom());
+			this.classeRPG.setArme(uneArme);
+			System.out.println(this.nom + " a gardé " + uneArme.getNom());
 		}
-		// cas du IMagicien et de son arme magique
-		else if(this.classeRPG instanceof IMagicien && uneArme instanceof ArmeMagique) {
-			this.arme = uneArme;
-			armeChangee = true;
-		}
-		// cas du IPaladin et de son arme magique ou mixte
-		else if((this.classeRPG instanceof IPaladin && uneArme instanceof ArmeMagique) || (this.classeRPG instanceof IPaladin && uneArme instanceof ArmeMixte)) {
-			this.arme = uneArme;
-			armeChangee = true;
-		}
-		return armeChangee;
 	}
 	
 	/** Accesseur d'armure, qui retourne l'armure du personnage
@@ -141,33 +124,21 @@ public abstract class Personnage implements IPersonnage {
 	 * @return l'armuree du personnage, qu'elle soit magique, mixte ou physique
 	 */
 	public Armure getArmure() {
-		return this.armure;
+		return this.classeRPG.getArmure();
 	}
 	
 	/** Accesseur d'armure, qui permet de changer l'armure du personnage, 
 	 * qui prend en compte la classe (au sens RPG) du personnage
 	 * 
 	 * @param uneArmure, objet Armure, armure que l'on veut équiper 
-	 * @return boolean, true si l'armure a été changée, false sinon
 	 */
-	public boolean setArmure(Armure uneArmure) {
-		boolean armureChangee = false;
-		// cas du IBarbare et de son armure physique
-		if(this.classeRPG instanceof IBarbare && uneArmure instanceof ArmurePhysique) {
-			this.armure = uneArmure;
-			armureChangee = true;
+	public void setArmure(Armure uneArmure) {
+		// On vérifie si le personnage peut équiper l'arme
+		if(this.classeRPG.checkArmure(uneArmure)) {
+			System.out.println(this.nom + " a laché " + this.classeRPG.getArmure().getNom());
+			this.classeRPG.setArmure(uneArmure);
+			System.out.println(this.nom + " a gardé " + uneArmure.getNom());
 		}
-		// cas du IMagicien et de son armure magique
-		else if(this.classeRPG instanceof IMagicien && uneArmure instanceof ArmureMagique) {
-			this.armure = uneArmure;
-			armureChangee = true;
-		}
-		// cas du IPaladin et de son armure magique ou mixte
-		else if((this.classeRPG instanceof IPaladin && uneArmure instanceof ArmureMagique) || (this.classeRPG instanceof IPaladin && uneArmure instanceof ArmureMixte)) {
-			this.armure = uneArmure;
-			armureChangee = true;
-		}
-		return armureChangee;
 	}
 	
 	/** Accesseur d'action, qui définie les points d'action actuel d'un personnage
@@ -233,17 +204,18 @@ public abstract class Personnage implements IPersonnage {
 		int degatsPhysiques = 0;
 		int degatsMagiques = 0;
 		int[] degatsMixtes = new int [2];
+		Arme lArme = this.classeRPG.getArme();
 				
 		// Récupération des dégats physiques et magiques en fonction du type d'arme
-		if (this.arme instanceof ArmePhysique) {
-			degatsPhysiques = ((ArmePhysique) this.arme).getStatPhysique();
+		if (lArme instanceof ArmePhysique) {
+			degatsPhysiques = ((ArmePhysique) lArme).getStatPhysique();
 		}
-		else if(this.arme instanceof ArmeMagique) {
-			degatsMagiques = ((ArmeMagique) this.arme).getStatMagique();
+		else if(lArme  instanceof ArmeMagique) {
+			degatsMagiques = ((ArmeMagique) lArme).getStatMagique();
 		}
-		else if(this.arme instanceof ArmeMixte) {
-			degatsPhysiques = ((ArmeMixte) this.arme).getStatPhysique();
-			degatsMagiques = ((ArmeMixte) this.arme).getStatMagique();			
+		else if(lArme  instanceof ArmeMixte) {
+			degatsPhysiques = ((ArmeMixte)lArme).getStatPhysique();
+			degatsMagiques = ((ArmeMixte)lArme).getStatMagique();			
 		}
 		
 		// On rempli le tableau de resultat
@@ -260,18 +232,19 @@ public abstract class Personnage implements IPersonnage {
 	public int[] getDefense() {
 		int reductionPhysique = 0;
 		int reductionMagique = 0;
-		int[] reductionMixte = new int[2];		
+		int[] reductionMixte = new int[2];	
+		Armure lArmure= this.classeRPG.getArmure();
 		
 		// Récupération des réduction physiques et magiques
-		if (this.armure instanceof ArmurePhysique) {
-			reductionPhysique = ((ArmurePhysique) this.armure).getStatPhysique();
+		if (lArmure instanceof ArmurePhysique) {
+			reductionPhysique = ((ArmurePhysique) lArmure).getStatPhysique();
 		}
-		else if(this.armure instanceof ArmureMagique) {
-			reductionMagique = ((ArmureMagique) this.armure).getStatMagique();
+		else if(lArmure instanceof ArmureMagique) {
+			reductionMagique = ((ArmureMagique) lArmure).getStatMagique();
 		}
-		else if(this.armure instanceof ArmureMixte) {
-			reductionPhysique = ((ArmureMixte) this.armure).getStatPhysique();
-			reductionMagique = ((ArmureMixte) this.armure).getStatMagique();			
+		else if(lArmure instanceof ArmureMixte) {
+			reductionPhysique = ((ArmureMixte) lArmure).getStatPhysique();
+			reductionMagique = ((ArmureMixte) lArmure).getStatMagique();			
 		}
 		
 		// Rempli le tableau de résultats		
@@ -279,6 +252,15 @@ public abstract class Personnage implements IPersonnage {
 		reductionMixte[1] = reductionMagique;
 		
 		return reductionMixte;		
+	}
+	
+	// RIP
+	public boolean checkArme(Arme uneArme) {
+		return false;
+	}
+	
+	public boolean checkArmure(Armure uneArmure) {
+		return false;
 	}
 
 }

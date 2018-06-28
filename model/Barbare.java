@@ -46,16 +46,16 @@ public class Barbare implements IBarbare{
 		
 	}
 
-	public void setArme(ArmePhysique armePhysique) {
-		this.armePhysique = armePhysique;
+	public void setArme(Arme armePhysique) {
+		this.armePhysique = (ArmePhysique) armePhysique;
 	}
 	
 	public ArmurePhysique getArmure() {
 		return armurePhysique;
 	}
 
-	public void setArmure(ArmurePhysique armurePhysique) {
-		this.armurePhysique = armurePhysique;
+	public void setArmure(Armure armurePhysique) {
+		this.armurePhysique = (ArmurePhysique) armurePhysique;
 	}
 	
 	public ArmePhysique getArmeSecondaire() {
@@ -67,6 +67,33 @@ public class Barbare implements IBarbare{
 	}
 
 	// Les méthodes
+	/** Permet de savoir si le personnage peut équiper ou non une arme
+	 * 
+	 * @param uneArme, l'arme que l'on veut vérifier
+	 * @return un boolean, true si l'arme est équipable, false sinon
+	 */
+	public boolean checkArme(Arme uneArme) {
+		boolean armeEquipable = false;
+		if (uneArme instanceof ArmePhysique) {
+			armeEquipable = true;
+		}
+		return armeEquipable;
+	}
+	
+
+	/** Permet de savoir si le personnage peut équiper ou non une armure
+	 * 
+	 * @param uneArmure, l'arme que l'on veut vérifier
+	 * @return un boolean, true si l'armure est équipable, false sinon
+	 */
+	public boolean checkArmure(Armure uneArmure) {
+		boolean armureEquipable = false;
+		if (uneArmure instanceof ArmurePhysique) {
+			armureEquipable = true;
+		}
+		return armureEquipable;
+	}
+	
 	/** Implémentation de la charge
 	 * 
 	 * @return un tableau de deux entiers, le cout de la compétence et les dégats de la compétence

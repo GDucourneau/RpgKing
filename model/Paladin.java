@@ -85,11 +85,45 @@ public class Paladin implements IPaladin {
 		return this.getArmeMixte();
 	}
 	
+	public void setArme(Arme uneArme) {
+		this.armeMixte = (ArmeMixte) uneArme;
+	}
+	
 	public Armure getArmure() {
 		return this.getArmureMixte();
 	}
+	
+	public void setArmure(Armure uneArmure) {
+		this.armureMixte = (ArmureMixte) uneArmure;
+	}
 
 	// Les méthodes
+	/** Permet de savoir si le personnage peut équiper ou non une arme
+	 * 
+	 * @param uneArme, l'arme que l'on veut vérifier
+	 * @return un boolean, true si l'arme est équipable, false sinon
+	 */
+	public boolean checkArme(Arme uneArme) {
+		boolean armeEquipable = false;
+		if (uneArme instanceof ArmeMixte) {
+			armeEquipable = true;
+		}
+		return armeEquipable;
+	}
+	
+
+	/** Permet de savoir si le personnage peut équiper ou non une armure
+	 * 
+	 * @param uneArmure, l'arme que l'on veut vérifier
+	 * @return un boolean, true si l'armure est équipable, false sinon
+	 */
+	public boolean checkArmure(Armure uneArmure) {
+		boolean armureEquipable = false;
+		if (uneArmure instanceof ArmureMixte) {
+			armureEquipable = true;
+		}
+		return armureEquipable;
+	}
 	/** Implémentation du soin
 	 * 
 	 * @return un tableau de deux entiers, le cout de la compétence et les points de vie soignés
