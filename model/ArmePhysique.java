@@ -50,4 +50,6 @@ public class ArmePhysique extends Arme {
 	public int getStatPhysique() {
 		return this.statPhysique;
 	}
+
+
 }

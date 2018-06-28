@@ -8,21 +8,13 @@ import java.sql.Statement;
 public class DBManager {
 	public DBManager(){}
 	
-public String request(String request) {
-	StringBuilder result = new StringBuilder();
+public ResultSet request(String request) {
 	Statement stmt = null;
 	ResultSet rs = null;
 	try {
 		stmt = DBOpenHelper.getInstance().getConn().createStatement();
 		 rs = stmt.executeQuery(request);
-		 while(rs.next()) {
-			 ResultSetMetaData rsmd = rs.getMetaData();
-			 for(int i = 1; i<= rsmd.getColumnCount();i++)
-			 {
-				 result.append(rs.getString(i)+ " ");
-			 }
-			 result.append("\n");
-		 }
+		
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -36,7 +28,7 @@ public String request(String request) {
 		}
 		
 	}
-	return result.toString();
+	return rs;
 	
 }
 	

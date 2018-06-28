@@ -37,7 +37,8 @@ public class RpgKing {
 		{
 			Joueurs = createPlayer(nbrJoueurs, unBarbare, unPaladin, unMagicien);
 		}else {
-			resultrequest = new DBManager().request("select nom,prenom,role.name from user inner join role on user.id_Role = role.id ");
+			
+			//resultrequest = new DBManager().request("select nom,prenom,role.name from user inner join role on user.id_Role = role.id ");
 			//System.out.println("Vous avez le joueur :"+resultrequest.subSequence(0, resultrequest.indexOf(" ", 0))+" "+));
 			System.out.println("");
 		}
