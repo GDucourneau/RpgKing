@@ -8,6 +8,7 @@ import java.sql.Savepoint;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.imie.algotojava.tp09Modifie.database.DBManager;
 import com.imie.algotojava.tp09Modifie.model.*;
 
 /**
@@ -20,18 +21,35 @@ public class RpgKing {
 	
 	public static  void commencer() {
 		int nbrJoueurs = 0;
+		String saisieUser="";
+		String resultrequest ="";
+		Scanner sc = new Scanner(System.in);
 		ArrayList<Hero> Joueurs = new ArrayList<Hero>();
 		ArmePhysique armeBarbare = new ArmePhysique("CartonJaune",1,5,5);
 		ArmurePhysique armureBarbare = new ArmurePhysique("GiletJaune",1,2);
 		Barbare unBarbare = new Barbare(armeBarbare,armureBarbare);
 		Paladin unPaladin = new Paladin();
 		Magicien unMagicien = new Magicien();
+		
+		System.out.println("Nouvelle partie? Y/N");
+		saisieUser=  sc.nextLine();
+		if(saisieUser.equals("Y"))
+		{
+			Joueurs = createPlayer(nbrJoueurs, unBarbare, unPaladin, unMagicien);
+		}else {
+			resultrequest = new DBManager().request("select nom,prenom,role.name from user inner join role on user.id_Role = role.id ");
+			//System.out.println("Vous avez le joueur :"+resultrequest.subSequence(0, resultrequest.indexOf(" ", 0))+" "+));
+			System.out.println("");
+		}
 		System.out.println("Combien de joueurs?");
-		Scanner sc = new Scanner(System.in);
+		
 		nbrJoueurs = sc.nextInt();
-		Joueurs = createPlayer(nbrJoueurs, unBarbare, unPaladin, unMagicien);
+		
+			
+		
 		game(Joueurs, unBarbare, unPaladin, unMagicien);
-
+		System.out.println("Voulez vous changer de classe ?");
+		
 	}
 	
 	public static  ArrayList<Hero> createPlayer(int nbrJoueurs,Barbare unBarbare,Paladin unPaladin,Magicien unMagicien)
@@ -39,7 +57,7 @@ public class RpgKing {
 		String saisieUser = "";
 		Scanner sc = new Scanner(System.in);
 		ArrayList<Hero> Joueurs = new ArrayList<Hero>();
-		String tabPerso[] = new String[7];
+		String tabPerso[] = new String[6];
 		String classe = "";
 		
 		for(int i = 0;i < nbrJoueurs;i++) {
@@ -137,7 +155,7 @@ public class RpgKing {
 			}
 			Joueurs.add(joueur);
 		}
-		
+		new DBManager().requestdata("INSERT INTO USER(id_Role,prenom,nom,niveau,pdvmax,pamax,valeurattaque) VALUES ("+Integer.parseInt(classe)+",'"+tabPerso[0]+"','"+tabPerso[1]+"',"+Integer.parseInt(tabPerso[2])+","+Integer.parseInt(tabPerso[3])+","+Integer.parseInt(tabPerso[4])+","+Integer.parseInt(tabPerso[5])+")");
 		return Joueurs;
 	}
 	
